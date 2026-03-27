@@ -18,7 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerHead;
     Vector2 lookInput;
     float headRotation;
-  
+    float sprintFOV = 90;
+    float walkFOV = 60;
+    [SerializeField] float viewSmoothing;
+    float currentFOV;
+
     [Header("Jump settings")]
     [SerializeField] float jumpForce;
     [SerializeField] bool isGrounded;
@@ -28,18 +32,17 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //Cursor.lockState = CursorLockMode.Locked;     
-      
+
+        Camera camera = playerHead.GetComponent<Camera>();
+        currentFOV = camera.fieldOfView;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void LateUpdate()
-    {
-       
+
+
+
     }
     private void FixedUpdate()
     {
@@ -50,18 +53,27 @@ public class PlayerMovement : MonoBehaviour
         targetVelocity = transform.forward * moveInput.y * (movementSpeed + sprintSpeed) + transform.right * moveInput.x * (movementSpeed + sprintSpeed);
         Vector3 velocity = Vector3.Lerp(rb.linearVelocity, targetVelocity, 1 - sluggishness);
         velocity.y = yVelocity;
-    
+        /* if(!isSprinting)
+         {
+             Camera.main.fieldOfView = Mathf.MoveTowards(currentFOV,walkFOV, viewSmoothing * Time.deltaTime);
+         }
+         else
+         {
+             Camera.main.fieldOfView = Mathf.MoveTowards(currentFOV, sprintFOV, viewSmoothing * Time.deltaTime);
+         }
+        */
         rb.linearVelocity = velocity;
 
         //Player rotation
-
-        transform.Rotate(0, lookInput.x * mouseSensitivity * Time.deltaTime, 0);
+        transform.Rotate(0, lookInput.x * Time.deltaTime * mouseSensitivity, 0);
         headRotation = Mathf.Clamp(headRotation, -maxHeadRotation, maxHeadRotation);
-        headRotation += -lookInput.y * mouseSensitivity * Time.deltaTime;
+        headRotation += -lookInput.y * Time.deltaTime * mouseSensitivity;
         playerHead.localRotation = Quaternion.Euler(headRotation, 0, 0);
+    }
+    private void LateUpdate()
+    {
 
     }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -124,4 +136,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+
 }
