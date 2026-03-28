@@ -64,15 +64,15 @@ public class PlayerMovement : MonoBehaviour
         */
         rb.linearVelocity = velocity;
 
+      
+    }
+    private void LateUpdate()
+    {
         //Player rotation
         transform.Rotate(0, lookInput.x * Time.deltaTime * mouseSensitivity, 0);
         headRotation = Mathf.Clamp(headRotation, -maxHeadRotation, maxHeadRotation);
         headRotation += -lookInput.y * Time.deltaTime * mouseSensitivity;
         playerHead.localRotation = Quaternion.Euler(headRotation, 0, 0);
-    }
-    private void LateUpdate()
-    {
-
     }
     public void OnMove(InputAction.CallbackContext context)
     {

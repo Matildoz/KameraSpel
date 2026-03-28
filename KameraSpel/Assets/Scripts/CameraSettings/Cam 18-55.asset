@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0590434a0110140b26cb4f397becce, type: 3}
-  m_Name: Camera2
+  m_Name: Cam 18-55
   m_EditorClassIdentifier: 
+  currentCamera: {fileID: 0}
   aberrationStrength: 0.107
-  minimumZoom: 15
-  maximumZoom: 400
+  minimumZoom: 18
+  maximumZoom: 55
+  focalLength: 0
+  focusDistance: 100
+  volumeProfile: {fileID: 11400000, guid: 6371e507a019f5341a9eefb4af63957d, type: 2}
+  dof: {fileID: 0}

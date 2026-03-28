@@ -56,8 +56,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaThreshold: 0.39
-    - _DissolveSize: 15.12
-    - _DissolveStrength: 0.625
+    - _DissolveSize: 10.8
+    - _DissolveStrength: 0
     - _Noise: 22.09
     - _QueueControl: 0
     - _QueueOffset: 0
