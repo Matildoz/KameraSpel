@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameStates : MonoBehaviour
 {
+    
     public Camera camera;
     [SerializeField] Player player;
     public enum PlayStates {walking,shooting}
