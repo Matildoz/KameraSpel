@@ -13,12 +13,15 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] List<Sprite> photos;
     [SerializeField] List<Image> images;
     [SerializeField] int imageRes = 100;
-    [SerializeField] int screenToCaptureX;
-    [SerializeField] int screenToCaptureY;
+    int height = 1024; 
+    int width = 1024;
+
+    [SerializeField] Camera camera;
+    public RenderTexture renderCaptureTexture;
     int photosTaken;
     void Start()
     {
-       
+       camera.targetTexture = renderCaptureTexture;
     }
 
     // Update is called once per frame
@@ -42,6 +45,19 @@ public class PhotoCapture : MonoBehaviour
         TextureToPhoto(screenCapture);
         SavePhoto();
         
+    }
+    public IEnumerator CapturePhotoWithRenderTexture()
+    {
+        yield return new WaitForEndOfFrame();
+        Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        Rect rect = new Rect(0, 0, width, height);
+        camera.Render();
+        photosTaken++;
+        screenCapture.ReadPixels(rect, 0, 0, false);
+        screenCapture.Apply();
+        TextureToPhoto(screenCapture);
+        SavePhoto();
+
     }
     void SavePhoto()
     {
