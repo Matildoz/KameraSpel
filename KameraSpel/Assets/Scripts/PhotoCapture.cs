@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
-    [SerializeField] Image photoDisplayArea;
-   
     [SerializeField] List<Sprite> photos;
     [SerializeField] Image[] images;
     [SerializeField] int imageRes = 100;
@@ -31,10 +30,13 @@ public class PhotoCapture : MonoBehaviour
         
     }
 
-    public void TakePhoto()
+    public void TakePhoto(InputAction.CallbackContext context)
     {
-     //   screenCapture = new Texture2D(Screen.width, Screen.height);
-        StartCoroutine(CapturePhotoWithRenderTexture());
+        if(context.started)
+        {
+            StartCoroutine(CapturePhotoWithRenderTexture());
+        }
+     
     }
     public IEnumerator CapturePhoto()
     {
@@ -51,7 +53,7 @@ public class PhotoCapture : MonoBehaviour
     public IEnumerator CapturePhotoWithRenderTexture()
     {
         yield return new WaitForEndOfFrame();
-        screenCapture = new Texture2D(renderCaptureTexture.width, renderCaptureTexture.height);
+        screenCapture = new Texture2D(renderCaptureTexture.width, renderCaptureTexture.height,TextureFormat.RGBA64,false);
         RenderTexture.active =renderCaptureTexture;
         screenCapture.ReadPixels(new Rect(0,0,renderCaptureTexture.width, renderCaptureTexture.height), 0,0);
         screenCapture.Apply();
@@ -69,7 +71,7 @@ public class PhotoCapture : MonoBehaviour
     public void TextureToPhoto()
     {
         photo = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, renderCaptureTexture.width,renderCaptureTexture.height), new Vector2(0.5f, 0.5f), imageRes);
-        photos.Add(photo);
+     
         
     }
     

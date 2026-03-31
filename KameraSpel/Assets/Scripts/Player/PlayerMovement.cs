@@ -16,11 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mouseSensitivity;
     [SerializeField] float maxHeadRotation = 80f;
     public Transform playerHead;
+   
     Vector2 lookInput;
     float headRotation;
-    float sprintFOV = 90;
-    float walkFOV = 60;
-    [SerializeField] float viewSmoothing;
+    
     float currentFOV;
 
     [Header("Jump settings")]
@@ -29,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float rayLength = 2f;
 
+
+    float bodyRot;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,8 +42,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-
-
+        //Player rotation
+        bodyRot += lookInput.x * mouseSensitivity * Time.deltaTime;
+        headRotation += -lookInput.y * mouseSensitivity * Time.deltaTime;
+        headRotation = Mathf.Clamp(headRotation, -maxHeadRotation, maxHeadRotation);
+       
+        playerHead.localRotation = Quaternion.Euler(headRotation, bodyRot, 0);
+       
     }
     private void FixedUpdate()
     {
@@ -53,27 +59,12 @@ public class PlayerMovement : MonoBehaviour
         targetVelocity = transform.forward * moveInput.y * (movementSpeed + sprintSpeed) + transform.right * moveInput.x * (movementSpeed + sprintSpeed);
         Vector3 velocity = Vector3.Lerp(rb.linearVelocity, targetVelocity, 1 - sluggishness);
         velocity.y = yVelocity;
-        /* if(!isSprinting)
-         {
-             Camera.main.fieldOfView = Mathf.MoveTowards(currentFOV,walkFOV, viewSmoothing * Time.deltaTime);
-         }
-         else
-         {
-             Camera.main.fieldOfView = Mathf.MoveTowards(currentFOV, sprintFOV, viewSmoothing * Time.deltaTime);
-         }
-        */
+      
         rb.linearVelocity = velocity;
 
       
     }
-    private void LateUpdate()
-    {
-        //Player rotation
-        transform.Rotate(0, lookInput.x * Time.deltaTime * mouseSensitivity, 0);
-        headRotation = Mathf.Clamp(headRotation, -maxHeadRotation, maxHeadRotation);
-        headRotation += -lookInput.y * Time.deltaTime * mouseSensitivity;
-        playerHead.localRotation = Quaternion.Euler(headRotation, 0, 0);
-    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
