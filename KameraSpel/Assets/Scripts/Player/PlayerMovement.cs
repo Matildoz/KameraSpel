@@ -41,9 +41,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        transform.Rotate(0, lookInput.x * mouseSensitivity * Time.deltaTime, 0);
         //Player rotation
-        bodyRot += lookInput.x * mouseSensitivity * Time.deltaTime;
+      //  bodyRot += lookInput.x * mouseSensitivity * Time.deltaTime;
         headRotation += -lookInput.y * mouseSensitivity * Time.deltaTime;
         headRotation = Mathf.Clamp(headRotation, -maxHeadRotation, maxHeadRotation);
        
