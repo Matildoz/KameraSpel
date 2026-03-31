@@ -8,16 +8,17 @@ using UnityEngine.UI;
 public class PhotoCapture : MonoBehaviour
 {
     [SerializeField] Image photoDisplayArea;
-    Sprite photo;
-    Texture2D screenCapture;
+   
     [SerializeField] List<Sprite> photos;
-    [SerializeField] List<Image> images;
+    [SerializeField] Image[] images;
     [SerializeField] int imageRes = 100;
     int height = 1024; 
     int width = 1024;
 
     [SerializeField] Camera camera;
     public RenderTexture renderCaptureTexture;
+    Sprite photo;
+    Texture2D screenCapture;
     int photosTaken;
     void Start()
     {
@@ -32,8 +33,8 @@ public class PhotoCapture : MonoBehaviour
 
     public void TakePhoto()
     {
-        screenCapture = new Texture2D(Screen.width, Screen.height);
-        StartCoroutine(CapturePhoto());
+     //   screenCapture = new Texture2D(Screen.width, Screen.height);
+        StartCoroutine(CapturePhotoWithRenderTexture());
     }
     public IEnumerator CapturePhoto()
     {
@@ -42,41 +43,46 @@ public class PhotoCapture : MonoBehaviour
         photosTaken++;
         screenCapture.ReadPixels(areaToRead, 0, 0, false);
         screenCapture.Apply();
-        TextureToPhoto(screenCapture);
+        TextureToPhoto();
+        AddPhotoToGallery();
         SavePhoto();
         
     }
     public IEnumerator CapturePhotoWithRenderTexture()
     {
         yield return new WaitForEndOfFrame();
-        Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-        Rect rect = new Rect(0, 0, width, height);
-        camera.Render();
-        photosTaken++;
-        screenCapture.ReadPixels(rect, 0, 0, false);
+        screenCapture = new Texture2D(renderCaptureTexture.width, renderCaptureTexture.height);
+        RenderTexture.active =renderCaptureTexture;
+        screenCapture.ReadPixels(new Rect(0,0,renderCaptureTexture.width, renderCaptureTexture.height), 0,0);
         screenCapture.Apply();
-        TextureToPhoto(screenCapture);
+        TextureToPhoto();
+        AddPhotoToGallery();
         SavePhoto();
 
     }
     void SavePhoto()
     {
-        
       
         byte[] byteArray = screenCapture.EncodeToPNG();
         File.WriteAllBytes(Application.dataPath + "Screenshot", byteArray);
     }
-    public Sprite TextureToPhoto(Texture2D photoCapture)
+    public void TextureToPhoto()
     {
-        Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, Screen.width, Screen.height), new Vector2(0.5f, 0.5f), imageRes);
-        photos.Add(photoSprite);
-        photoDisplayArea.sprite = photoSprite;
-        return photoSprite;
+        photo = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, renderCaptureTexture.width,renderCaptureTexture.height), new Vector2(0.5f, 0.5f), imageRes);
+        photos.Add(photo);
+        
     }
     
-    public void AddPhotoToGallery(Sprite photo)
+    public void AddPhotoToGallery()
     {
         photos.Add(photo);
-        images[0].sprite = photo;
+        for(int i = 0; i < images.Length; i++)
+        {
+            if(images[i].sprite == null)
+            {
+                images[i].sprite = photo;
+                return;
+            }
+        }
     }
 }

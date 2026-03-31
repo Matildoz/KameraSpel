@@ -1068,9 +1068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photoDisplayArea: {fileID: 927654909}
-  cameraView: {fileID: 8400000, guid: 85457840bdf313449b1d3747e3244324, type: 2}
   photos: []
-  imagesUI:
+  images:
   - {fileID: 155181110}
   - {fileID: 398074846}
   - {fileID: 1193468079}
@@ -1080,6 +1079,8 @@ MonoBehaviour:
   - {fileID: 1094611064}
   - {fileID: 44133587}
   imageRes: 100
+  camera: {fileID: 1989309605}
+  renderCaptureTexture: {fileID: 8400000, guid: 85457840bdf313449b1d3747e3244324, type: 2}
 --- !u!114 &282473775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &778111331
 SphereCollider:
   m_ObjectHideFlags: 0
