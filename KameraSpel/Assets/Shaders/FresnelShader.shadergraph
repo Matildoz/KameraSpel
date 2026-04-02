@@ -8,9 +8,6 @@
         },
         {
             "m_Id": "08843351117e4a8294e154a4ad731566"
-        },
-        {
-            "m_Id": "b0b12eca50434e0e980b6aeccd8a5370"
         }
     ],
     "m_Keywords": [],
@@ -946,9 +943,6 @@
         },
         {
             "m_Id": "08843351117e4a8294e154a4ad731566"
-        },
-        {
-            "m_Id": "b0b12eca50434e0e980b6aeccd8a5370"
         }
     ]
 }
@@ -975,34 +969,6 @@
     },
     "m_Labels": [],
     "m_Space": 0
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "b0b12eca50434e0e980b6aeccd8a5370",
-    "m_Guid": {
-        "m_GuidSerialized": "fb12ffef-a350-41a1-a1e7-22d4f72630d1"
-    },
-    "m_Name": "speed",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "speed",
-    "m_DefaultReferenceName": "_speed",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
 }
 
 {

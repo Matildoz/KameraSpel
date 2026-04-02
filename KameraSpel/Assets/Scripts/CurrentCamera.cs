@@ -50,7 +50,6 @@ public class CurrentCamera : MonoBehaviour
     }
     public void Zoom(float value)
     {
-        dof.focusDistance.value = value;
         camera.focalLength = value;
         if(camera.focalLength > cameraSettings.maximumZoom)
         {
@@ -67,6 +66,7 @@ public class CurrentCamera : MonoBehaviour
         zoomSlider.minValue = cameraSettings.minimumZoom;
         zoomSlider.maxValue = cameraSettings.maximumZoom;
         currentProfile = cameraSettings.volumeProfile;
+        camera.focalLength = cameraSettings.focalLength;
         setFocus.focusDistance = cameraSettings.focusDistance;
     }
     public void ChromaticaberrationOnOff()
