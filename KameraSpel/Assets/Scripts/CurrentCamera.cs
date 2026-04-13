@@ -18,7 +18,6 @@ public class CurrentCamera : MonoBehaviour
     float currentAberrationValue;
 
 
-
     ChromaticAberration aberration;
     [SerializeField] Slider aberrationSlider;
     [SerializeField] Slider zoomSlider;
