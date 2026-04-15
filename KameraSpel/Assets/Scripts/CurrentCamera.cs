@@ -17,7 +17,7 @@ public class CurrentCamera : MonoBehaviour
     [SerializeField] SetFocus setFocus;
     float currentAberrationValue;
 
-
+    
     ChromaticAberration aberration;
     [SerializeField] Slider aberrationSlider;
     [SerializeField] Slider zoomSlider;
