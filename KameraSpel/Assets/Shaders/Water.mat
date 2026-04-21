@@ -51,11 +51,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 34.1
+    - _CellSize: 68.16
     - _Noise: 112.9
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleStrength: 0.172
+    - _RippleStrength: 0.5
     - _WaveSpeed: 0.023
     m_Colors:
     - _Color: {r: 0.27607682, g: 0.33990115, b: 0.6226415, a: 1}
