@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem;
 
 
 public class CurrentCamera : MonoBehaviour
@@ -16,8 +17,10 @@ public class CurrentCamera : MonoBehaviour
     DepthOfField dof;
     [SerializeField] SetFocus setFocus;
     float currentAberrationValue;
-
-    
+    float zoomValue;
+    float currentZoom;
+    Vector2 ZoomInput;
+    float targetZoom;
     ChromaticAberration aberration;
     [SerializeField] Slider aberrationSlider;
     [SerializeField] Slider zoomSlider;
@@ -33,8 +36,14 @@ public class CurrentCamera : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
+       // float zoom = currentZoom += zoomValue;
+
+        //Zoom(zoom);
+
+        //Zooming with mouse
+        float zoom = currentZoom + ZoomInput.y;
+        Zoom(zoom);
     }
 
   
@@ -46,6 +55,17 @@ public class CurrentCamera : MonoBehaviour
     public void ChangeAberration(float value)
     {
         aberration.intensity.value = value;
+    }
+    public void Zoom(InputAction.CallbackContext input)
+    {
+        zoomValue = input.ReadValue<float>();
+       
+      
+    }
+    public void OnMouseScroll(InputAction.CallbackContext input)
+    {
+       ZoomInput = input.ReadValue<Vector2>();
+        Debug.Log(ZoomInput);
     }
     public void Zoom(float value)
     {
@@ -67,6 +87,7 @@ public class CurrentCamera : MonoBehaviour
         currentProfile = cameraSettings.volumeProfile;
         camera.focalLength = cameraSettings.focalLength;
         setFocus.focusDistance = cameraSettings.focusDistance;
+     
     }
     public void ChromaticaberrationOnOff()
     {
