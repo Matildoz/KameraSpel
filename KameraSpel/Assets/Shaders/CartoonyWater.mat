@@ -41,18 +41,18 @@ Material:
     - _CellSize: 6
     - _Distance: 3.5
     - _Float: 7.3
-    - _FoamAmount: 1
+    - _FoamAmount: 0.2
     - _FoamCutoff: 1
     - _FoamScale: 0.58
     - _FoamSpeed: 0.02
     - _NoiseScale: 11.9
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RefractionStrength: 0.01
+    - _RefractionStrength: 2.64
     - _Strength: 50.5
-    - _WaterDepth: 24.75
+    - _WaterDepth: 21.29
     - _WaveScale: 1.69
-    - _WaveSpeed: 0.43
+    - _WaveSpeed: 0.01
     - _WaveStrength: 19.1
     - _Waves: 2
     - _speed: 0.01
