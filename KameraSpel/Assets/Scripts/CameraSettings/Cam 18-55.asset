@@ -15,7 +15,7 @@ MonoBehaviour:
   currentCamera: {fileID: 0}
   aberrationStrength: 0.107
   minimumZoom: 18
-  maximumZoom: 55
+  maximumZoom: 100
   focalLength: 55
   focusDistance: 100
   volumeProfile: {fileID: 11400000, guid: 6371e507a019f5341a9eefb4af63957d, type: 2}

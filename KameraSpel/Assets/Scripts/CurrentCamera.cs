@@ -41,9 +41,7 @@ public class CurrentCamera : MonoBehaviour
 
         //Zoom(zoom);
 
-        //Zooming with mouse
-        float zoom = currentZoom + ZoomInput.y;
-        Zoom(zoom);
+    
     }
 
   

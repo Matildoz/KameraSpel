@@ -51,13 +51,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 34.1
-    - _Noise: 112.9
+    - _CellSize: 15.2
+    - _Noise: 49.48
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleStrength: 0.172
-    - _WaveSpeed: 0.023
+    - _RippleStrength: 0.256
+    - _RippleThickness: 6.7
+    - _WaveSpeed: 0.0074
     m_Colors:
-    - _Color: {r: 0.27607682, g: 0.33990115, b: 0.6226415, a: 1}
+    - _Color: {r: 0.122774996, g: 0.15419686, b: 0.2924528, a: 1}
+    - _DarkColor: {r: 0.0715557, g: 0.09569243, b: 0.22641507, a: 0}
+    - _LightColor: {r: 0, g: 0, b: 0, a: 0.8431373}
+    - _RippleColor: {r: 0.03893734, g: 0.1041643, b: 0.23584908, a: 0.8431373}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
