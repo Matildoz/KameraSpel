@@ -13,14 +13,14 @@ public class CurrentCamera : MonoBehaviour
     [SerializeField] CameraSetting cameraSettings;
     [SerializeField] Volume volume;
     [SerializeField] Camera camera;
+    [SerializeField] float zoomSpeed;
     VolumeProfile currentProfile;
     DepthOfField dof;
     [SerializeField] SetFocus setFocus;
     float currentAberrationValue;
     float zoomValue;
-    float currentZoom;
     Vector2 ZoomInput;
-    float targetZoom;
+  
     ChromaticAberration aberration;
     [SerializeField] Slider aberrationSlider;
     [SerializeField] Slider zoomSlider;
@@ -54,16 +54,32 @@ public class CurrentCamera : MonoBehaviour
     {
         aberration.intensity.value = value;
     }
-    public void Zoom(InputAction.CallbackContext input)
+    public void ZoomIn(InputAction.CallbackContext input)
     {
-        zoomValue = input.ReadValue<float>();
-       
-      
+        zoomValue += input.ReadValue<float>();
+       camera.focalLength = zoomValue;
+        
+        if (camera.focalLength > cameraSettings.maximumZoom)
+        {
+            camera.focalLength = cameraSettings.maximumZoom;
+        }
+        else if (camera.focalLength < cameraSettings.minimumZoom)
+        {
+            camera.focalLength = cameraSettings.minimumZoom;
+        }
     }
-    public void OnMouseScroll(InputAction.CallbackContext input)
+    public void ZoomOut(InputAction.CallbackContext input)
     {
-       ZoomInput = input.ReadValue<Vector2>();
-        Debug.Log(ZoomInput);
+        zoomValue -= input.ReadValue<float>();
+        camera.focalLength = zoomValue;
+        if (camera.focalLength > cameraSettings.maximumZoom)
+        {
+            camera.focalLength = cameraSettings.maximumZoom;
+        }
+        else if (camera.focalLength < cameraSettings.minimumZoom)
+        {
+            camera.focalLength = cameraSettings.minimumZoom;
+        }
     }
     public void Zoom(float value)
     {

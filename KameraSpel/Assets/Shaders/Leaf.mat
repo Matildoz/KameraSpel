@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5190343212520435173
+--- !u!114 &-8227268406083275850
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: 9341ab21041e9a04a82077f298fd9f5d, type: 3}
+  m_Name: Leaf
+  m_Shader: {fileID: -6465566751694194690, guid: 62078c282653c9d4ca7060c4a18f7a09, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -37,6 +37,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _SampleTexture2D_5d0a99ee46624139bc5bd430826d93cb_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_77bd43553f374328981a2f411e032507_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 7bde0edef9ca66343bf889891f73bb19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -51,17 +59,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 15.2
-    - _Noise: 150
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleStrength: 0.256
-    - _RippleThickness: 6.7
-    - _WaveSpeed: 0.0015
     m_Colors:
-    - _Color: {r: 0.122774996, g: 0.15419686, b: 0.2924528, a: 1}
-    - _DarkColor: {r: 0.0715557, g: 0.09569243, b: 0.22641507, a: 0}
-    - _LightColor: {r: 0, g: 0, b: 0, a: 0.8431373}
-    - _RippleColor: {r: 0.4481132, g: 0.63575464, b: 1, a: 0.8431373}
+    - _LeafColor: {r: 0.14335275, g: 0.24528301, b: 0.0983446, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
