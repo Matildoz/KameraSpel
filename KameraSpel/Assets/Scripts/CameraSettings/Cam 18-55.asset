@@ -16,7 +16,7 @@ MonoBehaviour:
   aberrationStrength: 0.107
   minimumZoom: 18
   maximumZoom: 100
-  focalLength: 55
+  focalLength: 18
   focusDistance: 100
   volumeProfile: {fileID: 11400000, guid: 6371e507a019f5341a9eefb4af63957d, type: 2}
   dof: {fileID: 0}
