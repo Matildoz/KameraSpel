@@ -37,10 +37,7 @@ public class CurrentCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-       // float zoom = currentZoom += zoomValue;
-
-        //Zoom(zoom);
-
+       
     
     }
 
@@ -92,7 +89,7 @@ public class CurrentCamera : MonoBehaviour
         {
             camera.focalLength = cameraSettings.minimumZoom;
         }
-    }
+    }    
     public void SetInitialSettings()
     {
         aberration.intensity.value = cameraSettings.aberrationStrength;
@@ -118,5 +115,5 @@ public class CurrentCamera : MonoBehaviour
             chromaticAberrationOn = true;
         }
     }
-    
+  
 }

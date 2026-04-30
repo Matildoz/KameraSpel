@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0590434a0110140b26cb4f397becce, type: 3}
-  m_Name: Cam 18-55
+  m_Name: Cam 18-100
   m_EditorClassIdentifier: 
   currentCamera: {fileID: 0}
-  aberrationStrength: 0.107
+  aberrationStrength: 0.453
   minimumZoom: 18
   maximumZoom: 100
   focalLength: 18
