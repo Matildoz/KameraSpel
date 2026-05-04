@@ -4205,18 +4205,18 @@ MonoBehaviour:
   agent: {fileID: 0}
   player: {fileID: 919132148676423675}
   currentState: 2
+  statMax: 100
   Hunger: 100
   hungerToEat: 0
   Thirst: 100
   Energy: 100
-  statMax: 95
-  Fear: 0
   hungerDrainSpeed: 0.2
   thirstDrainSpeed: 0.1
   energyDrainSpeed: 0.1
-  spookRange: 25
+  Fear: 0
+  spookRange: 23.3
   fearAmountToFlee: 20
-  spookRaiseSpeed: 1
+  spookRaiseSpeed: 2
 --- !u!114 &1682104683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5118,11 +5118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863869626041144804, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 6863869626041144804, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.28
+      value: -8.12
       objectReference: {fileID: 0}
     - target: {fileID: 7081252519086388811, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
       propertyPath: m_CullingMask.m_Bits
