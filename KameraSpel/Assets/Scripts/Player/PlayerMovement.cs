@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         Camera camera = playerHead.GetComponent<Camera>();
-      
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

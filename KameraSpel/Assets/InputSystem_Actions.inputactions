@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenNotebook",
+                    "type": "Button",
+                    "id": "b505e2b0-ba88-4989-bb70-abd36d3c1b56",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -552,6 +561,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ZoomOut",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96cd1a74-9db4-409e-936b-82d62d5b3cfa",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenNotebook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

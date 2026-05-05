@@ -44,30 +44,10 @@ public class DeerAI : MonoBehaviour
     void Update()
     {
         //DrainStats();
-
-       switch (currentState)
-        {
-            case BehaviourStates.resting:
-                //Kolla sina stats för att se vad man behöver
-                //Om hungrig
-                //Ät
-                //Om törstig
-                //Gå till vattenkälla, drick
-                //Om energi är låg men hungrig/törstig
-                //Strunta i energi
-                break;
-
-            case BehaviourStates.aware:
-
-                break;
-
-        }
-      
         if (DistanceToPlayer() <= spookRange)
         {
             currentState = BehaviourStates.aware;
             Fear += Time.deltaTime * spookRaiseSpeed;
-            Debug.Log(Fear);
             if (Fear >= fearAmountToFlee)
             {
                 Flee();
@@ -75,6 +55,8 @@ public class DeerAI : MonoBehaviour
         }
         else
         {
+            currentState = BehaviourStates.resting;
+           
             Fear -= Time.deltaTime * spookRaiseSpeed;
             if (Fear < 0)
             {
@@ -83,13 +65,54 @@ public class DeerAI : MonoBehaviour
             //Check needs
         }
 
+        switch (currentState)
+        {
+            case BehaviourStates.resting:
+                if (DistanceToPlayer() <= spookRange)
+                {
+                    currentState = BehaviourStates.aware;
+                    Fear += Time.deltaTime * spookRaiseSpeed;
+                    if (Fear >= fearAmountToFlee)
+                    {
+                        Flee();
+                    }
+                }
+                else
+                {
+                    Eat();
+
+                }
+                //Kolla sina stats för att se vad man behöver
+                //Om hungrig
+                //Gå till matkälla, ät
+                //Ät
+                //Om törstig
+                //Gå till vattenkälla, drick
+                //Om energi är låg men hungrig/törstig
+                //Strunta i energi
+                break;
+
+            case BehaviourStates.aware:
+                StopEating();
+                break;
+
+            case BehaviourStates.fleeing:
+                Flee();
+                break;
+        }
+      
+        
     }
 
     void Eat()
     {
-        animator.SetTrigger("Eat");
+       //animator.SetTrigger("Eat");
+        animator.SetBool("StartEating", true);
     }
-
+    void StopEating()
+    {
+        animator.SetBool("StartEating",false);
+    }
     float DistanceToPlayer()
     {
         float distanceToPlayer = Vector3.Distance(transform.position,player.transform.position);

@@ -11,8 +11,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] List<Sprite> photos;
     [SerializeField] Image[] images;
     [SerializeField] int imageRes = 100;
-    int height = 1024; 
-    int width = 1024;
+  
 
     [SerializeField] Camera camera;
     public RenderTexture renderCaptureTexture;
@@ -86,5 +85,15 @@ public class PhotoCapture : MonoBehaviour
                 return;
             }
         }
+    }
+    public void SellPhoto(int index)
+    {
+        Debug.Log(index);
+        if (index >= photos.Count)
+        {
+            return;
+        }
+        photos.RemoveAt(index);
+        images[index].sprite = null;
     }
 }

@@ -55,7 +55,6 @@ public class CurrentCamera : MonoBehaviour
     {
         zoomValue += input.ReadValue<float>();
        camera.focalLength = zoomValue;
-        
         if (camera.focalLength > cameraSettings.maximumZoom)
         {
             camera.focalLength = cameraSettings.maximumZoom;

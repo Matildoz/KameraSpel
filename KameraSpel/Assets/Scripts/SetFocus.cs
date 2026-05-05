@@ -29,7 +29,7 @@ public class SetFocus : MonoBehaviour
         {
             hitDistance = Vector3.Distance(transform.position,hit.point);
             hitObject = hit.transform.gameObject;
-            AdjustFocus();
+           // AdjustFocus();
             Debug.DrawLine(physicalCamera.transform.position, hit.point,Color.green);
         }
         else
