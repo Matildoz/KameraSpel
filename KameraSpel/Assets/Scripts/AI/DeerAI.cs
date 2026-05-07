@@ -122,9 +122,9 @@ public class DeerAI : MonoBehaviour
     {
         currentState = BehaviourStates.fleeing;
     }
-    void SetNewPosition()
+    void FindFleePosition()
     {
-
+        Vector2 directionToPlayer = transform.position-player.transform.position;
     }
     void DrainStats()
     {

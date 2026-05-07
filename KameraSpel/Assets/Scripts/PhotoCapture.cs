@@ -45,8 +45,7 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.ReadPixels(areaToRead, 0, 0, false);
         screenCapture.Apply();
         TextureToPhoto();
-        AddPhotoToGallery();
-        SavePhoto();
+        AddPhotoToGallery();       
         
     }
     public IEnumerator CapturePhotoWithRenderTexture()
@@ -57,16 +56,10 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.ReadPixels(new Rect(0,0,renderCaptureTexture.width, renderCaptureTexture.height), 0,0);
         screenCapture.Apply();
         TextureToPhoto();
-        AddPhotoToGallery();
-        SavePhoto();
+        AddPhotoToGallery();       
 
     }
-    void SavePhoto()
-    {
-      
-        byte[] byteArray = screenCapture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + "Screenshot", byteArray);
-    }
+
     public void TextureToPhoto()
     {
         photo = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, renderCaptureTexture.width,renderCaptureTexture.height), new Vector2(0.5f, 0.5f), imageRes);
@@ -91,6 +84,7 @@ public class PhotoCapture : MonoBehaviour
         Debug.Log(index);
         if (index >= photos.Count)
         {
+            //You're trying to delete a photo that doesn't exist
             return;
         }
         photos.RemoveAt(index);
