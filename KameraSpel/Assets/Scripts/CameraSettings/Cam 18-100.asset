@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cam 18-100
   m_EditorClassIdentifier: 
   currentCamera: {fileID: 0}
-  aberrationStrength: 0.453
+  aberrationStrength: 0.208
   minimumZoom: 18
-  maximumZoom: 100
+  maximumZoom: 200
   focalLength: 18
   focusDistance: 100
   volumeProfile: {fileID: 11400000, guid: 6371e507a019f5341a9eefb4af63957d, type: 2}
