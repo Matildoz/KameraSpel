@@ -128,5 +128,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    public void UpdateMouseSentitivity(float value)
+    {
+        mouseSensitivity = value;
+    }
 }
