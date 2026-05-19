@@ -10,11 +10,13 @@ public class OpenNotebook : MonoBehaviour
     {
         photoBook.SetActive(true);
         photobookOn = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     void HidePhotos()
     {
         photoBook.SetActive(false);
         photobookOn = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void OnPhotobookOnOff(InputAction.CallbackContext context)
