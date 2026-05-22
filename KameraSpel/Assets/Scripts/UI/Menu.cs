@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1.0f;
     }
     public void ExitGame()
     {
