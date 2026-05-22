@@ -7187,7 +7187,7 @@ MonoBehaviour:
   focusLayer:
     serializedVersion: 2
     m_Bits: 1
-  focusDistance: 226
+  focusDistance: 102.6
 --- !u!114 &919132148676423679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 55398142989061680, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
@@ -7595,6 +7595,14 @@ PrefabInstance:
     - target: {fileID: 3918451180796367807, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154697495950730070, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154697495950730070, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
+      propertyPath: rayLength
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4154697495950730070, guid: 054a1ca974d3fb74f88b20eb029f41c8, type: 3}
       propertyPath: mouseSensitivity
