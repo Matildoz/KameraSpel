@@ -11,8 +11,9 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] List<Sprite> photos;
     [SerializeField] Image[] images;
     [SerializeField] int imageRes = 100;
-  
 
+    [SerializeField] Image cameraFlash;
+    [SerializeField] float flashDuration = 0.2f;
     [SerializeField] Camera camera;
     public RenderTexture renderCaptureTexture;
     Sprite photo;
@@ -37,9 +38,11 @@ public class PhotoCapture : MonoBehaviour
         }
      
     }
-    public IEnumerator CapturePhoto()
+   /* public IEnumerator CapturePhoto()
     {
         yield return new WaitForEndOfFrame();
+       
+        
         Rect areaToRead = new Rect(0,0, Screen.width, Screen.height);
         photosTaken++;
         screenCapture.ReadPixels(areaToRead, 0, 0, false);
@@ -48,6 +51,13 @@ public class PhotoCapture : MonoBehaviour
         AddPhotoToGallery();       
         
     }
+   */
+    public IEnumerator CameraFlash()
+    {
+        cameraFlash.enabled = true;
+        yield return new WaitForSeconds(flashDuration);
+        cameraFlash.enabled = false;
+    }
     public IEnumerator CapturePhotoWithRenderTexture()
     {
         yield return new WaitForEndOfFrame();
@@ -55,6 +65,8 @@ public class PhotoCapture : MonoBehaviour
         RenderTexture.active =renderCaptureTexture;
         screenCapture.ReadPixels(new Rect(0,0,renderCaptureTexture.width, renderCaptureTexture.height), 0,0);
         screenCapture.Apply();
+       
+        StartCoroutine(CameraFlash());       
         TextureToPhoto();
         AddPhotoToGallery();       
 
